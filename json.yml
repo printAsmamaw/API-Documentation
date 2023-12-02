@@ -45,7 +45,7 @@ paths:
                 name: Product A
                 price: 19.99
                 stock: 100
-
+  /addproduct:
     post:
       summary: Add a new product
       description: Add a new product to the e-commerce store.
@@ -54,7 +54,7 @@ paths:
         content:
           application/json:
             example:
-              name: New Product
+              name: Product 1
               price: 39.99
               stock: 20
       responses:
@@ -66,7 +66,7 @@ paths:
                 message: Product added successfully
                 product:
                   id: 3
-                  name: New Product
+                  name: Product 1
                   price: 39.99
                   stock: 20
 
@@ -79,9 +79,9 @@ paths:
         content:
           application/json:
             example:
-              name: John Doe
-              email: john.doe@example.com
-              password: securepassword123
+              name: Asmamaw Damte
+              email: Asmamaw@gmail.com
+              password: password123
       responses:
         '201':
           description: User registered successfully
@@ -91,5 +91,5 @@ paths:
                 message: User registered successfully
                 user:
                   id: 1
-                  name: John Doe
-                  email: john.doe@example.com
+                  name: Asmamaw
+                  email: Asmamaw@gmail.com
