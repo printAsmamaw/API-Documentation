@@ -1,0 +1,95 @@
+openapi: 3.0.0
+info:
+  title: E-commerce API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000/api
+paths:
+  /products:
+    get:
+      summary: Get all products
+      description: Retrieve a list of all products available in the e-commerce store.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                products:
+                  - id: 1
+                    name: Product A
+                    price: 19.99
+                    stock: 100
+                  - id: 2
+                    name: Product B
+                    price: 29.99
+                    stock: 50
+
+  /products/{id}:
+    get:
+      summary: Get product details
+      description: Retrieve detailed information about a specific product.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              example:
+                id: 1
+                name: Product A
+                price: 19.99
+                stock: 100
+
+    post:
+      summary: Add a new product
+      description: Add a new product to the e-commerce store.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: New Product
+              price: 39.99
+              stock: 20
+      responses:
+        '201':
+          description: Product added successfully
+          content:
+            application/json:
+              example:
+                message: Product added successfully
+                product:
+                  id: 3
+                  name: New Product
+                  price: 39.99
+                  stock: 20
+
+  /users:
+    post:
+      summary: Register a new user
+      description: Register a new user in the e-commerce system.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            example:
+              name: John Doe
+              email: john.doe@example.com
+              password: securepassword123
+      responses:
+        '201':
+          description: User registered successfully
+          content:
+            application/json:
+              example:
+                message: User registered successfully
+                user:
+                  id: 1
+                  name: John Doe
+                  email: john.doe@example.com
